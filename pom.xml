@@ -326,6 +326,19 @@
 			<groupId>org.codehaus.mojo</groupId>
 			<artifactId>findbugs-maven-plugin</artifactId>
 			<version>2.3.2</version>
+			<configuration>
+				<skip>true</skip>
+			</configuration>
+			<executions>
+			  <execution>
+				  <id>findbugs</id>
+				  <phase>compile</phase>
+				  <goals>
+					  <goal>check</goal>
+				  </goals>
+			  </execution>
+		  </executions>
+
 		</plugin>
 	</plugins>
     </pluginManagement>
@@ -376,16 +389,9 @@
 	  <plugin>
 		  <groupId>org.codehaus.mojo</groupId>
 		  <artifactId>findbugs-maven-plugin</artifactId>
-		  <version>2.3.3</version>
-		  <executions>
-			  <execution>
-				  <id>findbugs</id>
-				  <phase>compile</phase>
-				  <goals>
-					  <goal>findbugs</goal>
-				  </goals>
-			  </execution>
-		  </executions>
+		  <configuration>
+			  <skip>${findbugs.skip}</skip>
+		  </configuration>
 	  </plugin>
 	  <plugin>
 		  <groupId>org.apache.maven.plugins</groupId>
